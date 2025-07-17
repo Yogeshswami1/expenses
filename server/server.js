@@ -8,12 +8,13 @@ dotenv.config();
 
 const app = express();
 
-const corsOptions = {
-  origin: "http://expense.yogeshtech.xyz",
-  methods: ["GET", "POST", "DELETE"],
+app.use(cors({
+  origin: 'http://expense.yogeshtech.xyz',
+  methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
   credentials: true,
-};
-app.use(cors(corsOptions));
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
 
 app.use(express.json());
 
