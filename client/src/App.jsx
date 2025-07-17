@@ -93,7 +93,7 @@ function App() {
   return (
     <div className="wrapper">
       <div className="tracker-box">
-        <h1>Expeense Yogesh Tracker 💰</h1>
+        <h1>Expeense Yogesh Tracker hanji💰</h1>
 
         <div className="form">
           <input
