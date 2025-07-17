@@ -6,7 +6,7 @@ services:
       context: ./client
       dockerfile: Dockerfile
     ports:
-      - '3002:80'  # You can use 80 in production
+      - '3004:80'  # You can use 80 in production
     depends_on:
       - backend
     restart: always

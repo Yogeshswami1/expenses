@@ -5,7 +5,7 @@ server {
     server_name backendexpense.yogeshtech.xyz;
 
     location / {
-        proxy_pass http://localhost:3000;  # Assuming your Node.js app is running on port 3000
+        proxy_pass http://localhost:5005;  # Assuming your Node.js app is running on port 3000
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -15,4 +15,27 @@ server {
 
     error_log /var/log/nginx/backendexpense.yogeshtech.xyz;
     access_log /var/log/nginx/backendexpense.yogeshtech.xyzg;
+}
+
+sudo ln -s /etc/nginx/sites-available/backendexpense.yogeshtech.xyz /etc/nginx/sites-enabled/
+
+Frontend
+
+sudo nano /etc/nginx/sites-available/expense.yogeshtech.xyz
+
+server {
+    listen 80;
+    server_name expense.yogeshtech.xyz;
+
+    location / {
+        proxy_pass http://localhost:3002;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    error_log /var/log/nginx/notes.yogeshtech.xyz-error.log;
+    access_log /var/log/nginx/notes.yogeshtech.xyz-access.log;
 }
