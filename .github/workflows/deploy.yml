@@ -25,13 +25,7 @@ jobs:
             cd /var/www/html/Expenses  # 👈 Make sure this is correct path
 
             echo "📦 Pulling latest code..."
-            sudo chown -R ubuntu:ubuntu .
-           
-
-            git pull origin main   # ✅ Ye line add karo!
-            echo "🔍 Latest commit:"
-            git log -1
-
+            
             sudo chown -R ubuntu:ubuntu .
             git fetch origin
             git reset --hard origin/main
@@ -46,7 +40,7 @@ jobs:
             echo "🧱 Pruning old Docker images..."
             sudo docker image prune -a -f
 
-            echo "🚧 Rebuilding app..."
+            echo "🚧 Rebuilding app..." 
             sudo docker compose build --no-cache
 
             echo "🚀 Starting updated app..."
